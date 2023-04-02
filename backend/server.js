@@ -29,10 +29,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/", (req, res) => {
   res.json("Hello");
 });
-app.use("/admin", adminroute);
+/* app.use("/admin", adminroute);
 app.use("/dean", deanroute);
 app.use("/hod", hodroute);
-app.use("/pc", pcroute);
+app.use("/pc", pcroute); */
 
 app.use(errorHandler);
 
