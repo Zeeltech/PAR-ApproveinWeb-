@@ -32,4 +32,7 @@ app.use("/pc", pcroute);
 
 app.use(errorHandler);
 
-app.listen(port, () => console.log(`Server started on ${port}`));
+app.listen(port, () => {
+  console.log(`Server started on ${port}`);
+  console.log(`https://${process.env.BASE_URL}/dean/signup`);
+});

@@ -15,12 +15,6 @@ function SignUpDean() {
 
   const navigate = useNavigate();
 
-  /*   useEffect(() => {
-    axios
-      .get(`https://${process.env.BASE_URL}/dean/dashboard`, { withCredentials: true })
-      .then((response) => navigate("/dean/dashboard"));
-  }); */
-
   const handleSingup = async (event) => {
     event.preventDefault();
     if (
@@ -35,7 +29,7 @@ function SignUpDean() {
     } else {
       // make a POST request to the login route on the back-end server
       await axios
-        .post(`https://${process.env.BASE_URL}/dean/signup`, {
+        .post(`https://${process.env.REACT_APP_BASE_URL}/dean/signup`, {
           email: email,
           password: password,
           name: username,
