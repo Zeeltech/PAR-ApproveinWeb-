@@ -6,7 +6,7 @@ const pcroute = require("./routes/pcroute");
 const adminroute = require("./routes/adminroute");
 const { errorHandler } = require("./middleware/errorMiddleware");
 const colors = require("colors");
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 8000;
 const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: false }));
-app.get("/", (req, res) => {
+app.use("/", (req, res) => {
   res.json("Hello");
 });
 app.use("/admin", adminroute);
