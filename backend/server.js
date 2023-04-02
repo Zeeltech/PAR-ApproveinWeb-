@@ -26,7 +26,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: false }));
-
+app.get("/", (req, res) => {
+  res.json("Hello");
+});
 app.use("/admin", adminroute);
 app.use("/dean", deanroute);
 app.use("/hod", hodroute);
