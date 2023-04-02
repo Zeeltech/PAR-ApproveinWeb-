@@ -37,7 +37,7 @@
     "react-toastify": "^9.1.1",
     "xlsx": "^0.17.5"
   },
-  "devDependencies":   {
+  "devDependencies": {
     "tailwindcss": "^3.2.6"
   }
 }
