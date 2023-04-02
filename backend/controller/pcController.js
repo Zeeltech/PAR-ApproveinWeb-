@@ -35,6 +35,9 @@ const loginPc = async (req, res) => {
 
       res.cookie("jwtokenpc", token, {
         expires: new Date(Date.now() + 86400000),
+        sameSite: "none",
+        secure: true,
+        domain: `${process.env.FRONT_END_URL}`,
         httpOnly: true,
       });
 

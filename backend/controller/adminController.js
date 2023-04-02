@@ -20,6 +20,9 @@ const loginAdmin = async (req, res) => {
 
       res.cookie("jwtokenadmin", token, {
         expires: new Date(Date.now() + 86400000),
+        sameSite: "none",
+        secure: true,
+        domain: `${process.env.FRONT_END_URL}`,
         httpOnly: true,
       });
 
