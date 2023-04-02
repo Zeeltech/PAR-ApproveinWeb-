@@ -9,12 +9,12 @@ function PcFormPurchase() {
   const [department, setDepartment] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:5000/pc/getsupp", { withCredentials: true })
+      .get(`${process.env.BASE_URL}/pc/getsupp`, { withCredentials: true })
       .then((response) => setAll(response.data.supp));
   });
   useEffect(() => {
     axios
-      .get("http://localhost:5000/pc/getme", {
+      .get(`${process.env.BASE_URL}/pc/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -52,7 +52,7 @@ function PcFormPurchase() {
     event.preventDefault();
     await axios
       .post(
-        "http://localhost:5000/pc/formpurchase",
+        `${process.env.BASE_URL}/pc/formpurchase`,
         {
           Sr_No: formData.Sr_No,
           Academic_Year: formData.Academic_Year,

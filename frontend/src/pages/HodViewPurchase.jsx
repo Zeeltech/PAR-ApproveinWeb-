@@ -26,24 +26,27 @@ const HodViewPurchase = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await axios.get("http://localhost:5000/hod/downloadfile", {
-      responseType: "blob",
-      params: {
-        sr_no: sr_no,
-        department: department,
-        academic_year: academic_year,
-        description: description,
-        bill_no: bill_no,
-        po_no: po_no,
-        supplier: supplier,
-        item: item,
-        quantity: quantity,
-        totalquantity: totalquantity,
-        total: total,
-        pricelesser: pricelesser,
-        pricegreater: pricegreater,
-      },
-    });
+    const response = await axios.get(
+      `${process.env.BASE_URL}/hod/downloadfile`,
+      {
+        responseType: "blob",
+        params: {
+          sr_no: sr_no,
+          department: department,
+          academic_year: academic_year,
+          description: description,
+          bill_no: bill_no,
+          po_no: po_no,
+          supplier: supplier,
+          item: item,
+          quantity: quantity,
+          totalquantity: totalquantity,
+          total: total,
+          pricelesser: pricelesser,
+          pricegreater: pricegreater,
+        },
+      }
+    );
     const url = window.URL.createObjectURL(new Blob([response.data]));
     const link = document.createElement("a");
     link.href = url;
@@ -56,18 +59,18 @@ const HodViewPurchase = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5000/hod/getsupp", {
+      .get(`${process.env.BASE_URL}/hod/getsupp`, {
         withCredentials: true,
       })
       .then((response) => {
         setAll(response.data.supp);
-        return axios.get("http://localhost:5000/hod/getme", {
+        return axios.get(`${process.env.BASE_URL}/hod/getme`, {
           withCredentials: true,
         });
       })
       .then((response) => {
         setDepartment(response.data.department);
-        return axios.get(`http://localhost:5000/hod/searchpurchase`, {
+        return axios.get(`${process.env.BASE_URL}/hod/searchpurchase`, {
           withCredentials: true,
           params: {
             sr_no: sr_no,

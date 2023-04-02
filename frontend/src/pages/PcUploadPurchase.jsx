@@ -12,7 +12,7 @@ const PcUploadPurchase = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/pc/getme", {
+      .get(`${process.env.BASE_URL}/pc/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -35,7 +35,7 @@ const PcUploadPurchase = () => {
     // console.log(formData);
 
     axios
-      .post("http://localhost:5000/pc/uploadfile", formData, {
+      .post(`${process.env.BASE_URL}/pc/uploadfile`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

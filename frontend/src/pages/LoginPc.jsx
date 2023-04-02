@@ -15,7 +15,7 @@ function LoginPc() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/pc/dashboard", { withCredentials: true })
+      .get(`${process.env.BASE_URL}/pc/dashboard`, { withCredentials: true })
       .then((response) => navigate("/pc/dashboard"));
   });
 
@@ -28,7 +28,7 @@ function LoginPc() {
 
       await axios
         .post(
-          "http://localhost:5000/pc/login",
+          `${process.env.BASE_URL}/pc/login`,
           {
             email: email,
             password: password,

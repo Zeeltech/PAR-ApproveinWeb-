@@ -15,12 +15,12 @@ function AllUser() {
   useEffect(() => {
     axios
       .all([
-        axios.get("http://localhost:5000/admin/dashboard", {
+        axios.get(`${process.env.BASE_URL}/admin/dashboard`, {
           withCredentials: true,
         }),
-        axios.post("http://localhost:5000/pc/req", { status: "Active" }),
-        axios.post("http://localhost:5000/dean/req", { status: "Active" }),
-        axios.post("http://localhost:5000/hod/req", { status: "Active" }),
+        axios.post(`${process.env.BASE_URL}/pc/req`, { status: "Active" }),
+        axios.post(`${process.env.BASE_URL}/dean/req`, { status: "Active" }),
+        axios.post(`${process.env.BASE_URL}/hod/req`, { status: "Active" }),
       ])
       .then(
         axios.spread((res1, res2, res3, res4) => {

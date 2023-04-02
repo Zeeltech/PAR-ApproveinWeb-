@@ -15,12 +15,12 @@ function PendingUser() {
   useEffect(() => {
     axios
       .all([
-        axios.get("http://localhost:5000/admin/dashboard", {
+        axios.get(`${process.env.BASE_URL}/admin/dashboard`, {
           withCredentials: true,
         }),
-        axios.post("http://localhost:5000/pc/req", { status: "Pending" }),
-        axios.post("http://localhost:5000/dean/req", { status: "Pending" }),
-        axios.post("http://localhost:5000/hod/req", { status: "Pending" }),
+        axios.post(`${process.env.BASE_URL}/pc/req`, { status: "Pending" }),
+        axios.post(`${process.env.BASE_URL}/dean/req`, { status: "Pending" }),
+        axios.post(`${process.env.BASE_URL}/hod/req`, { status: "Pending" }),
       ])
       .then(
         axios.spread((res1, res2, res3, res4) => {

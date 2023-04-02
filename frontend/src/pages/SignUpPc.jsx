@@ -19,13 +19,13 @@ function SignUpPc() {
 
   /*  useEffect(() => {
     axios
-      .get("http://localhost:5000/pc/dashboard", { withCredentials: true })
+      .get(`${process.env.BASE_URL}/pc/dashboard", { withCredentials: true })
       .then((response) => navigate("/pc/dashboard"));
   }); */
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/pc/getdept")
+      .get(`${process.env.BASE_URL}/pc/getdept`)
       .then((response) => setAll(response.data.depts));
   });
 
@@ -45,7 +45,7 @@ function SignUpPc() {
       // make a POST request to the login route on the back-end server
 
       await axios
-        .post("http://localhost:5000/pc/signup", {
+        .post(`${process.env.BASE_URL}/pc/signup`, {
           email: email,
           password: password,
           name: username,

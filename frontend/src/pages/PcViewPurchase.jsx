@@ -97,7 +97,7 @@ const PcViewPurchase = () => {
 
     await axios
       .post(
-        "http://localhost:5000/pc/updatepurchase",
+        `${process.env.BASE_URL}/pc/updatepurchase`,
         {
           _id: formData._id,
           Sr_No: formData.Sr_No,
@@ -140,24 +140,27 @@ const PcViewPurchase = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await axios.get("http://localhost:5000/pc/downloadfile", {
-      responseType: "blob",
-      params: {
-        department: department,
-        sr_no: sr_no,
-        academic_year: academic_year,
-        description: description,
-        bill_no: bill_no,
-        po_no: po_no,
-        supplier: supplier,
-        item: item,
-        quantity: quantity,
-        totalquantity: totalquantity,
-        total: total,
-        pricelesser: pricelesser,
-        pricegreater: pricegreater,
-      },
-    });
+    const response = await axios.get(
+      `${process.env.BASE_URL}/pc/downloadfile`,
+      {
+        responseType: "blob",
+        params: {
+          department: department,
+          sr_no: sr_no,
+          academic_year: academic_year,
+          description: description,
+          bill_no: bill_no,
+          po_no: po_no,
+          supplier: supplier,
+          item: item,
+          quantity: quantity,
+          totalquantity: totalquantity,
+          total: total,
+          pricelesser: pricelesser,
+          pricegreater: pricegreater,
+        },
+      }
+    );
     const url = window.URL.createObjectURL(new Blob([response.data]));
     const link = document.createElement("a");
     link.href = url;
@@ -170,7 +173,7 @@ const PcViewPurchase = () => {
   const handleDelete = async (id) => {
     try {
       await axios
-        .post("http://localhost:5000/pc/deleterow", {
+        .post(`${process.env.BASE_URL}/pc/deleterow`, {
           id: id,
         })
         .then((res) => {
@@ -187,7 +190,7 @@ const PcViewPurchase = () => {
   const handleDeleteMany = async () => {
     try {
       await axios
-        .post("http://localhost:5000/pc/deleterowmany", {
+        .post(`${process.env.BASE_URL}/pc/deleterowmany`, {
           ids: selectedRows,
         })
         .then((res) => {
@@ -204,18 +207,18 @@ const PcViewPurchase = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5000/pc/getsupp", {
+      .get(`${process.env.BASE_URL}/pc/getsupp`, {
         withCredentials: true,
       })
       .then((response) => {
         setAll(response.data.supp);
-        return axios.get("http://localhost:5000/pc/getme", {
+        return axios.get(`${process.env.BASE_URL}/pc/getme`, {
           withCredentials: true,
         });
       })
       .then((response) => {
         setDepartment(response.data.department);
-        return axios.get(`http://localhost:5000/pc/searchpurchase`, {
+        return axios.get(`${process.env.BASE_URL}/pc/searchpurchase`, {
           withCredentials: true,
           params: {
             department: response.data.department,

@@ -12,7 +12,7 @@ const PcUploadRepair = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/pc/getme", {
+      .get(`${process.env.BASE_URL}/pc/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -35,13 +35,13 @@ const PcUploadRepair = () => {
     // console.log(formData);
 
     axios
-      .post("http://localhost:5000/pc/uploadrepairfile", formData, {
+      .post(`${process.env.BASE_URL}/pc/uploadrepairfile`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
         params: { department: department },
       })
-      .then((response ) => {
+      .then((response) => {
         console.log(response);
         if (response.data.message === "Duplicate key found") {
           toast.error(response.data.pe);

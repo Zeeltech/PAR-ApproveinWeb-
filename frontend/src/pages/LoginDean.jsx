@@ -15,7 +15,7 @@ function LoginDean() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/dean/dashboard", { withCredentials: true })
+      .get(`${process.env.BASE_URL}/dean/dashboard`, { withCredentials: true })
       .then((response) => navigate("/dean/dashboard"));
   });
 
@@ -26,7 +26,7 @@ function LoginDean() {
     } else {
       await axios
         .post(
-          "http://localhost:5000/dean/login",
+          `${process.env.BASE_URL}/dean/login`,
           {
             email: email,
             password: password,

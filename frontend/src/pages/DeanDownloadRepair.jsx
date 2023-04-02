@@ -7,7 +7,7 @@ const DeanDownloadRepair = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      "http://localhost:5000/dean/downloadrepairfile",
+      `${process.env.BASE_URL}/dean/downloadrepairfile`,
       {
         responseType: "blob",
       }

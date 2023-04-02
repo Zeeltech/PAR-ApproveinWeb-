@@ -15,7 +15,7 @@ function LoginHOD() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/hod/dashboard", { withCredentials: true })
+      .get(`${process.env.BASE_URL}/hod/dashboard`, { withCredentials: true })
       .then((response) => navigate("/hod/dashboard"));
   });
 
@@ -26,7 +26,7 @@ function LoginHOD() {
     } else {
       await axios
         .post(
-          "http://localhost:5000/hod/login",
+          `${process.env.BASE_URL}/hod/login`,
           {
             email: email,
             password: password,

@@ -9,7 +9,7 @@ const HodDownloadRepair = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/hod/getme", {
+      .get(`${process.env.BASE_URL}/hod/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -19,7 +19,7 @@ const HodDownloadRepair = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      "http://localhost:5000/hod/downloadrepairfile",
+      `${process.env.BASE_URL}/hod/downloadrepairfile`,
       {
         responseType: "blob",
         params: {

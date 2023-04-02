@@ -26,7 +26,7 @@ const DeanViewRepair = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      "http://localhost:5000/pc/downloadrepairfile",
+      `${process.env.BASE_URL}/pc/downloadrepairfile`,
       {
         responseType: "blob",
         params: {
@@ -58,18 +58,18 @@ const DeanViewRepair = () => {
     setLoading(true);
 
     axios
-      .get("http://localhost:5000/dean/getsupp", {
+      .get(`${process.env.BASE_URL}/dean/getsupp`, {
         withCredentials: true,
       })
       .then((response) => {
         setAll(response.data.supp);
-        return axios.get("http://localhost:5000/dean/getme", {
+        return axios.get(`${process.env.BASE_URL}/dean/getme`, {
           withCredentials: true,
         });
       })
       .then((response) => {
         setDepartment(response.data.department);
-        return axios.get(`http://localhost:5000/dean/searchrepair`, {
+        return axios.get(`${process.env.BASE_URL}/dean/searchrepair`, {
           withCredentials: true,
           params: {
             department: response.data.department,
