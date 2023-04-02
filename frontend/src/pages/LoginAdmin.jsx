@@ -15,7 +15,9 @@ function LoginAdmin() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/admin/dashboard", { withCredentials: true })
+      .get(`${process.env.BASE_URL}/admin/dashboard`, {
+        withCredentials: true,
+      })
       .then((response) => navigate("/admin/dashboard"));
   });
 
@@ -26,7 +28,7 @@ function LoginAdmin() {
     } else {
       await axios
         .post(
-          "http://localhost:5000/admin/login",
+          `${process.env.BASE_URL}/admin/login`,
           {
             email: email,
             password: password,

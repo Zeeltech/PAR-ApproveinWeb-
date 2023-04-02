@@ -25,7 +25,7 @@ function AdminDashboard() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/admin/getdept", { withCredentials: true })
+      .get(`${process.env.BASE_URL}/admin/getdept`, { withCredentials: true })
       .then((response) => setAll(response.data.depts));
   });
 
@@ -33,7 +33,7 @@ function AdminDashboard() {
     event.preventDefault();
     await axios
       .post(
-        "http://localhost:5000/admin/adddept",
+        `${process.env.BASE_URL}/admin/adddept`,
         {
           department: dept,
         },
@@ -51,7 +51,7 @@ function AdminDashboard() {
   const deptDelete = async (event, department) => {
     event.preventDefault();
     await axios
-      .post("http://localhost:5000/admin/deletedept", {
+      .post(`${process.env.BASE_URL}/admin/deletedept`, {
         department: department,
       })
       .then((res) => {
