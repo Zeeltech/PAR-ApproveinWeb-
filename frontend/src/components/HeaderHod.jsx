@@ -15,7 +15,7 @@ function HeaderHod() {
 
   useEffect(() => {
     axios
-      .get(`${process.env.BASE_URL}/hod/getme`, {
+      .get(`https://${process.env.BASE_URL}/hod/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -27,7 +27,7 @@ function HeaderHod() {
   const handleLogout = async (event) => {
     event.preventDefault();
     await axios
-      .get(`${process.env.BASE_URL}/hod/logout`, {
+      .get(`https://${process.env.BASE_URL}/hod/logout`, {
         withCredentials: true,
       })
       .then((response) => navigate("/login/hod"));

@@ -14,7 +14,7 @@ function HeaderPc() {
 
   useEffect(() => {
     axios
-      .get(`${process.env.BASE_URL}/pc/getme`, {
+      .get(`https://${process.env.BASE_URL}/pc/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -26,7 +26,7 @@ function HeaderPc() {
   const handleLogout = async (event) => {
     event.preventDefault();
     await axios
-      .get(`${process.env.BASE_URL}/pc/logout`, {
+      .get(`https://${process.env.BASE_URL}/pc/logout`, {
         withCredentials: true,
       })
       .then((response) => navigate("/login/pc"));

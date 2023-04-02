@@ -17,7 +17,7 @@ function SignUpDean() {
 
   /*   useEffect(() => {
     axios
-      .get(`${process.env.BASE_URL}/dean/dashboard`, { withCredentials: true })
+      .get(`https://${process.env.BASE_URL}/dean/dashboard`, { withCredentials: true })
       .then((response) => navigate("/dean/dashboard"));
   }); */
 
@@ -35,7 +35,7 @@ function SignUpDean() {
     } else {
       // make a POST request to the login route on the back-end server
       await axios
-        .post(`${process.env.BASE_URL}/dean/signup`, {
+        .post(`https://${process.env.BASE_URL}/dean/signup`, {
           email: email,
           password: password,
           name: username,

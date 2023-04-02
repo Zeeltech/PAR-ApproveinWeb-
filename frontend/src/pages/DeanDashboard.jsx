@@ -11,7 +11,7 @@ function PcDashboard() {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`${process.env.BASE_URL}/dean/dashboard`, { withCredentials: true })
+      .get(`https://${process.env.BASE_URL}/dean/dashboard`, { withCredentials: true })
       .then((response) => {})
       .catch((err) => navigate("/login/dean"));
   });

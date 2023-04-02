@@ -8,7 +8,7 @@ function PcTable(pc) {
     event.preventDefault();
     console.log("click");
     axios
-      .post(`${process.env.BASE_URL}/pc/status`, {
+      .post(`https://${process.env.BASE_URL}/pc/status`, {
         email: pc.pc.email,
         status: pc.pc.status,
       })
@@ -21,7 +21,7 @@ function PcTable(pc) {
   const HandleDelete = async (event) => {
     event.preventDefault();
     await axios
-      .post(`${process.env.BASE_URL}/pc/delete`, {
+      .post(`https://${process.env.BASE_URL}/pc/delete`, {
         email: pc.pc.email,
       })
       .then((res) => {

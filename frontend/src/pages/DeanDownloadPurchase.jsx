@@ -7,7 +7,7 @@ const DeanDownloadPurchase = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `${process.env.BASE_URL}/dean/downloadfile`,
+      `https://${process.env.BASE_URL}/dean/downloadfile`,
       {
         responseType: "blob",
       }
@@ -15,7 +15,7 @@ const DeanDownloadPurchase = () => {
     const url = window.URL.createObjectURL(new Blob([response.data]));
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", `${Date.now()}` + "test.xlsx");
+    link.setAttribute("download", `https://${Date.now()}` + "test.xlsx");
     document.body.appendChild(link);
     link.click();
     link.remove();

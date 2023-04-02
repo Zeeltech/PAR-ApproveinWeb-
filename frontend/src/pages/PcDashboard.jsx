@@ -11,7 +11,7 @@ function PcDashboard() {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`${process.env.BASE_URL}/pc/dashboard`, { withCredentials: true })
+      .get(`https://${process.env.BASE_URL}/pc/dashboard`, { withCredentials: true })
       .then((response) => {})
       .catch((err) => navigate("/login/pc"));
   });

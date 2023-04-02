@@ -11,7 +11,7 @@ function HodDashboard() {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`${process.env.BASE_URL}/hod/dashboard`, { withCredentials: true })
+      .get(`https://${process.env.BASE_URL}/hod/dashboard`, { withCredentials: true })
       .then((response) => {})
       .catch((err) => navigate("/login/hod"));
   });

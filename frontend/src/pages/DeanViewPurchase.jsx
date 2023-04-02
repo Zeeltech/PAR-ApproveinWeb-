@@ -27,7 +27,7 @@ const DeanViewPurchase = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `${process.env.BASE_URL}/dean/downloadfile`,
+      `https://${process.env.BASE_URL}/dean/downloadfile`,
       {
         responseType: "blob",
         params: {
@@ -49,7 +49,7 @@ const DeanViewPurchase = () => {
     const url = window.URL.createObjectURL(new Blob([response.data]));
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", `${Date.now()}` + "test.xlsx");
+    link.setAttribute("download", `https://${Date.now()}` + "test.xlsx");
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -58,18 +58,18 @@ const DeanViewPurchase = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${process.env.BASE_URL}/dean/getsupp`, {
+      .get(`https://${process.env.BASE_URL}/dean/getsupp`, {
         withCredentials: true,
       })
       .then((response) => {
         setAll(response.data.supp);
-        return axios.get(`${process.env.BASE_URL}/dean/getme`, {
+        return axios.get(`https://${process.env.BASE_URL}/dean/getme`, {
           withCredentials: true,
         });
       })
       .then((response) => {
         setDepartment(response.data.department);
-        return axios.get(`${process.env.BASE_URL}/dean/searchpurchase`, {
+        return axios.get(`https://${process.env.BASE_URL}/dean/searchpurchase`, {
           withCredentials: true,
           params: {
             sr_no: sr_no,

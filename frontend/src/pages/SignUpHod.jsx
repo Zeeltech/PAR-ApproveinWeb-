@@ -19,7 +19,7 @@ function SignUpHod() {
 
   useEffect(() => {
     axios
-      .get(`${process.env.BASE_URL}/hod/getdept`)
+      .get(`https://${process.env.BASE_URL}/hod/getdept`)
       .then((response) => setAll(response.data.depts));
   });
 
@@ -39,7 +39,7 @@ function SignUpHod() {
       // make a POST request to the login route on the back-end server
 
       await axios
-        .post(`${process.env.BASE_URL}/hod/signup`, {
+        .post(`https://${process.env.BASE_URL}/hod/signup`, {
           email: email,
           password: password,
           name: username,

@@ -80,7 +80,7 @@ const PcViewRepair = () => {
 
     await axios
       .post(
-        `${process.env.BASE_URL}/pc/updaterepair`,
+        `https://${process.env.BASE_URL}/pc/updaterepair`,
         {
           _id: formData._id,
           Sr_No: formData.Sr_No,
@@ -120,7 +120,7 @@ const PcViewRepair = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `${process.env.BASE_URL}/pc/downloadrepairfile`,
+      `https://${process.env.BASE_URL}/pc/downloadrepairfile`,
       {
         responseType: "blob",
         params: {
@@ -151,7 +151,7 @@ const PcViewRepair = () => {
     setConfirmDelete(false);
     try {
       await axios
-        .post(`${process.env.BASE_URL}/pc/deleterowrepair`, {
+        .post(`https://${process.env.BASE_URL}/pc/deleterowrepair`, {
           id: id,
         })
         .then((res) => {
@@ -167,7 +167,7 @@ const PcViewRepair = () => {
   const handleDeleteMany = async () => {
     try {
       await axios
-        .post(`${process.env.BASE_URL}/pc/deleterowrepairmany`, {
+        .post(`https://${process.env.BASE_URL}/pc/deleterowrepairmany`, {
           ids: selectedRows,
         })
         .then((res) => {
@@ -185,18 +185,18 @@ const PcViewRepair = () => {
     setLoading(true);
 
     axios
-      .get(`${process.env.BASE_URL}/pc/getsupp`, {
+      .get(`https://${process.env.BASE_URL}/pc/getsupp`, {
         withCredentials: true,
       })
       .then((response) => {
         setAll(response.data.supp);
-        return axios.get(`${process.env.BASE_URL}/pc/getme`, {
+        return axios.get(`https://${process.env.BASE_URL}/pc/getme`, {
           withCredentials: true,
         });
       })
       .then((response) => {
         setDepartment(response.data.department);
-        return axios.get(`${process.env.BASE_URL}/pc/searchrepair`, {
+        return axios.get(`https://${process.env.BASE_URL}/pc/searchrepair`, {
           withCredentials: true,
           params: {
             department: response.data.department,

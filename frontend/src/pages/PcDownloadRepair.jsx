@@ -9,7 +9,7 @@ const PcDownloadRepair = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.BASE_URL}/pc/getme`, {
+      .get(`https://${process.env.BASE_URL}/pc/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -19,7 +19,7 @@ const PcDownloadRepair = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `${process.env.BASE_URL}/pc/downloadrepairfile`,
+      `https://${process.env.BASE_URL}/pc/downloadrepairfile`,
       {
         responseType: "blob",
         params: {

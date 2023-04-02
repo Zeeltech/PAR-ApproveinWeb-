@@ -27,7 +27,7 @@ const HodViewPurchase = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `${process.env.BASE_URL}/hod/downloadfile`,
+      `https://${process.env.BASE_URL}/hod/downloadfile`,
       {
         responseType: "blob",
         params: {
@@ -50,7 +50,7 @@ const HodViewPurchase = () => {
     const url = window.URL.createObjectURL(new Blob([response.data]));
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", `${Date.now()}` + "test.xlsx");
+    link.setAttribute("download", `https://${Date.now()}` + "test.xlsx");
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -59,18 +59,18 @@ const HodViewPurchase = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${process.env.BASE_URL}/hod/getsupp`, {
+      .get(`https://${process.env.BASE_URL}/hod/getsupp`, {
         withCredentials: true,
       })
       .then((response) => {
         setAll(response.data.supp);
-        return axios.get(`${process.env.BASE_URL}/hod/getme`, {
+        return axios.get(`https://${process.env.BASE_URL}/hod/getme`, {
           withCredentials: true,
         });
       })
       .then((response) => {
         setDepartment(response.data.department);
-        return axios.get(`${process.env.BASE_URL}/hod/searchpurchase`, {
+        return axios.get(`https://${process.env.BASE_URL}/hod/searchpurchase`, {
           withCredentials: true,
           params: {
             sr_no: sr_no,
