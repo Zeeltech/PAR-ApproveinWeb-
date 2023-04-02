@@ -15,11 +15,11 @@ function SignUpDean() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
+  /*   useEffect(() => {
     axios
       .get(`${process.env.BASE_URL}/dean/dashboard`, { withCredentials: true })
       .then((response) => navigate("/dean/dashboard"));
-  });
+  }); */
 
   const handleSingup = async (event) => {
     event.preventDefault();
