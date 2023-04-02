@@ -10,6 +10,7 @@ const port = process.env.PORT || 8000;
 const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const product = require("./api/product");
 
 connectDB();
 
