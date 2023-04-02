@@ -10,7 +10,6 @@ const port = process.env.PORT || 8000;
 const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const product = require("./api/product");
 
 connectDB();
 
@@ -27,13 +26,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: false }));
-app.use("/api/product", product);
-/* app.use("/api", (req, res) => {
-  res.json("Hello");
-});
 app.use("/api/admin", adminroute);
 app.use("/api/dean", deanroute);
-app.use("/api/hod", hodroute); */
+app.use("/api/hod", hodroute);
 app.use("/api/pc", pcroute);
 
 app.use(errorHandler);
