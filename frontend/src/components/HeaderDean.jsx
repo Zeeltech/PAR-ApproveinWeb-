@@ -13,7 +13,7 @@ function HeaderDean() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/dean/getme", {
+      .get(`${process.env.BASE_URL}/dean/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -24,7 +24,7 @@ function HeaderDean() {
   const handleLogout = async (event) => {
     event.preventDefault();
     await axios
-      .get("http://localhost:5000/dean/logout", {
+      .get(`${process.env.BASE_URL}/dean/logout`, {
         withCredentials: true,
       })
       .then((response) => navigate("/login/dean"));

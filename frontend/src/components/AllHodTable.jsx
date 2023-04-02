@@ -7,7 +7,7 @@ function AllHodTable(hod) {
     event.preventDefault();
     console.log("click");
     axios
-      .post("http://localhost:5000/hod/status", {
+      .post(`${process.env.BASE_URL}/hod/status`, {
         email: hod.hod.email,
         status: hod.hod.status,
       })
@@ -20,7 +20,7 @@ function AllHodTable(hod) {
   const HandleDelete = async (event) => {
     event.preventDefault();
     await axios
-      .post("http://localhost:5000/hod/delete", {
+      .post(`${process.env.BASE_URL}/hod/delete`, {
         email: hod.hod.email,
       })
       .then((res) => {

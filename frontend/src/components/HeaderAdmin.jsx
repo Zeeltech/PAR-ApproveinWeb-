@@ -14,7 +14,7 @@ function HeaderAdmin() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/admin/getme", {
+      .get(`${process.env.BASE_URL}/admin/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -25,7 +25,7 @@ function HeaderAdmin() {
   const handleLogout = async (event) => {
     event.preventDefault();
     await axios
-      .get("http://localhost:5000/admin/logout", {
+      .get(`${process.env.BASE_URL}/admin/logout`, {
         withCredentials: true,
       })
       .then((response) => navigate("/login/admin"));

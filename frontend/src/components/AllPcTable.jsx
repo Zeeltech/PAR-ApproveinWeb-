@@ -7,7 +7,7 @@ function AllPcTable(pc) {
     event.preventDefault();
     console.log("click");
     axios
-      .post("http://localhost:5000/pc/status", {
+      .post(`${process.env.BASE_URL}/pc/status`, {
         email: pc.pc.email,
         status: pc.pc.status,
       })
@@ -20,7 +20,7 @@ function AllPcTable(pc) {
   const HandleDelete = async (event) => {
     event.preventDefault();
     await axios
-      .post("http://localhost:5000/pc/delete", {
+      .post(`${process.env.BASE_URL}/pc/delete`, {
         email: pc.pc.email,
       })
       .then((res) => {

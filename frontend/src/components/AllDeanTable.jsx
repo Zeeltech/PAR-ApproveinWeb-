@@ -7,7 +7,7 @@ function AllDeanTable(dean) {
     event.preventDefault();
     console.log("click");
     axios
-      .post("http://localhost:5000/dean/status", {
+      .post(`${process.env.BASE_URL}/dean/status`, {
         email: dean.dean.email,
         status: dean.dean.status,
       })
@@ -20,7 +20,7 @@ function AllDeanTable(dean) {
   const HandleDelete = async (event) => {
     event.preventDefault();
     await axios
-      .post("http://localhost:5000/dean/delete", {
+      .post(`${process.env.BASE_URL}/dean/delete`, {
         email: dean.dean.email,
       })
       .then((res) => {
