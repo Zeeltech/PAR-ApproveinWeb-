@@ -12,7 +12,7 @@ const PcUploadRepair = () => {
 
   useEffect(() => {
     axios
-      .get(`https://${process.env.BASE_URL}/pc/getme`, {
+      .get(`https://${process.env.REACT_APP_BASE_URL}/pc/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -35,7 +35,7 @@ const PcUploadRepair = () => {
     // console.log(formData);
 
     axios
-      .post(`https://${process.env.BASE_URL}/pc/uploadrepairfile`, formData, {
+      .post(`https://${process.env.REACT_APP_BASE_URL}/pc/uploadrepairfile`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

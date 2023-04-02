@@ -26,7 +26,7 @@ const HodViewRepair = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `https://${process.env.BASE_URL}/pc/downloadrepairfile`,
+      `https://${process.env.REACT_APP_BASE_URL}/pc/downloadrepairfile`,
       {
         responseType: "blob",
         params: {
@@ -58,18 +58,18 @@ const HodViewRepair = () => {
     setLoading(true);
 
     axios
-      .get(`https://${process.env.BASE_URL}/hod/getsupp`, {
+      .get(`https://${process.env.REACT_APP_BASE_URL}/hod/getsupp`, {
         withCredentials: true,
       })
       .then((response) => {
         setAll(response.data.supp);
-        return axios.get(`https://${process.env.BASE_URL}/hod/getme`, {
+        return axios.get(`https://${process.env.REACT_APP_BASE_URL}/hod/getme`, {
           withCredentials: true,
         });
       })
       .then((response) => {
         setDepartment(response.data.department);
-        return axios.get(`https://${process.env.BASE_URL}/hod/searchrepair`, {
+        return axios.get(`https://${process.env.REACT_APP_BASE_URL}/hod/searchrepair`, {
           withCredentials: true,
           params: {
             department: response.data.department,

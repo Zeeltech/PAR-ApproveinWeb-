@@ -9,7 +9,7 @@ const PcDownloadPurchase = () => {
 
   useEffect(() => {
     axios
-      .get(`https://${process.env.BASE_URL}/pc/getme`, {
+      .get(`https://${process.env.REACT_APP_BASE_URL}/pc/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -20,7 +20,7 @@ const PcDownloadPurchase = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `https://${process.env.BASE_URL}/pc/downloadfile`,
+      `https://${process.env.REACT_APP_BASE_URL}/pc/downloadfile`,
       {
         responseType: "blob",
         params: {

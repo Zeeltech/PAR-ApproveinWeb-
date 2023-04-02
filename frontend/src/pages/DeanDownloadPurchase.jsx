@@ -7,7 +7,7 @@ const DeanDownloadPurchase = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `https://${process.env.BASE_URL}/dean/downloadfile`,
+      `https://${process.env.REACT_APP_BASE_URL}/dean/downloadfile`,
       {
         responseType: "blob",
       }

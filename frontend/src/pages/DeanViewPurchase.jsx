@@ -27,7 +27,7 @@ const DeanViewPurchase = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `https://${process.env.BASE_URL}/dean/downloadfile`,
+      `https://${process.env.REACT_APP_BASE_URL}/dean/downloadfile`,
       {
         responseType: "blob",
         params: {
@@ -58,18 +58,18 @@ const DeanViewPurchase = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://${process.env.BASE_URL}/dean/getsupp`, {
+      .get(`https://${process.env.REACT_APP_BASE_URL}/dean/getsupp`, {
         withCredentials: true,
       })
       .then((response) => {
         setAll(response.data.supp);
-        return axios.get(`https://${process.env.BASE_URL}/dean/getme`, {
+        return axios.get(`https://${process.env.REACT_APP_BASE_URL}/dean/getme`, {
           withCredentials: true,
         });
       })
       .then((response) => {
         setDepartment(response.data.department);
-        return axios.get(`https://${process.env.BASE_URL}/dean/searchpurchase`, {
+        return axios.get(`https://${process.env.REACT_APP_BASE_URL}/dean/searchpurchase`, {
           withCredentials: true,
           params: {
             sr_no: sr_no,

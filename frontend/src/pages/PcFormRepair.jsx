@@ -9,7 +9,7 @@ function PcFormRepair() {
   const [department, setDepartment] = useState("");
   useEffect(() => {
     axios
-      .get(`https://${process.env.BASE_URL}/pc/getme`, {
+      .get(`https://${process.env.REACT_APP_BASE_URL}/pc/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -18,7 +18,7 @@ function PcFormRepair() {
   });
   useEffect(() => {
     axios
-      .get(`https://${process.env.BASE_URL}/pc/getsupp`, {
+      .get(`https://${process.env.REACT_APP_BASE_URL}/pc/getsupp`, {
         withCredentials: true,
       })
       .then((response) => setAll(response.data.supp));
@@ -50,7 +50,7 @@ function PcFormRepair() {
     event.preventDefault();
     await axios
       .post(
-        `https://${process.env.BASE_URL}/pc/formrepair`,
+        `https://${process.env.REACT_APP_BASE_URL}/pc/formrepair`,
         {
           Sr_No: formData.Sr_No,
           Description_of_Material: formData.Description_of_Material,

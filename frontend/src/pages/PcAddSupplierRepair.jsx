@@ -14,7 +14,7 @@ function PcAddSupplierRepair() {
 
   useEffect(() => {
     axios
-      .get(`https://${process.env.BASE_URL}/pc/getsupp`, { withCredentials: true })
+      .get(`https://${process.env.REACT_APP_BASE_URL}/pc/getsupp`, { withCredentials: true })
       .then((response) => setAll(response.data.supp));
   });
 
@@ -22,7 +22,7 @@ function PcAddSupplierRepair() {
     event.preventDefault();
     await axios
       .post(
-        `https://${process.env.BASE_URL}/pc/addsupp`,
+        `https://${process.env.REACT_APP_BASE_URL}/pc/addsupp`,
         {
           supplier: value,
           address: suppAdd,
@@ -43,7 +43,7 @@ function PcAddSupplierRepair() {
   const suppDelete = async (event, supplier) => {
     event.preventDefault();
     await axios
-      .post(`https://${process.env.BASE_URL}/pc/deletesupp`, {
+      .post(`https://${process.env.REACT_APP_BASE_URL}/pc/deletesupp`, {
         supplier: supplier,
       })
       .then((res) => {

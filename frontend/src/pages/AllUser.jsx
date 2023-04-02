@@ -15,12 +15,12 @@ function AllUser() {
   useEffect(() => {
     axios
       .all([
-        axios.get(`https://${process.env.BASE_URL}/admin/dashboard`, {
+        axios.get(`https://${process.env.REACT_APP_BASE_URL}/admin/dashboard`, {
           withCredentials: true,
         }),
-        axios.post(`https://${process.env.BASE_URL}/pc/req`, { status: "Active" }),
-        axios.post(`https://${process.env.BASE_URL}/dean/req`, { status: "Active" }),
-        axios.post(`https://${process.env.BASE_URL}/hod/req`, { status: "Active" }),
+        axios.post(`https://${process.env.REACT_APP_BASE_URL}/pc/req`, { status: "Active" }),
+        axios.post(`https://${process.env.REACT_APP_BASE_URL}/dean/req`, { status: "Active" }),
+        axios.post(`https://${process.env.REACT_APP_BASE_URL}/hod/req`, { status: "Active" }),
       ])
       .then(
         axios.spread((res1, res2, res3, res4) => {

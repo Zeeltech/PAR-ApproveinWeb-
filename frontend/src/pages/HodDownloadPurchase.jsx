@@ -9,7 +9,7 @@ const HodDownloadPurchase = () => {
 
   useEffect(() => {
     axios
-      .get(`https://${process.env.BASE_URL}/hod/getme`, {
+      .get(`https://${process.env.REACT_APP_BASE_URL}/hod/getme`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -20,7 +20,7 @@ const HodDownloadPurchase = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `https://${process.env.BASE_URL}/hod/downloadfile`,
+      `https://${process.env.REACT_APP_BASE_URL}/hod/downloadfile`,
       {
         responseType: "blob",
         params: {

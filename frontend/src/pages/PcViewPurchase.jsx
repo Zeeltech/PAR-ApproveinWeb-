@@ -97,7 +97,7 @@ const PcViewPurchase = () => {
 
     await axios
       .post(
-        `https://${process.env.BASE_URL}/pc/updatepurchase`,
+        `https://${process.env.REACT_APP_BASE_URL}/pc/updatepurchase`,
         {
           _id: formData._id,
           Sr_No: formData.Sr_No,
@@ -141,7 +141,7 @@ const PcViewPurchase = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `https://${process.env.BASE_URL}/pc/downloadfile`,
+      `https://${process.env.REACT_APP_BASE_URL}/pc/downloadfile`,
       {
         responseType: "blob",
         params: {
@@ -173,7 +173,7 @@ const PcViewPurchase = () => {
   const handleDelete = async (id) => {
     try {
       await axios
-        .post(`https://${process.env.BASE_URL}/pc/deleterow`, {
+        .post(`https://${process.env.REACT_APP_BASE_URL}/pc/deleterow`, {
           id: id,
         })
         .then((res) => {
@@ -190,7 +190,7 @@ const PcViewPurchase = () => {
   const handleDeleteMany = async () => {
     try {
       await axios
-        .post(`https://${process.env.BASE_URL}/pc/deleterowmany`, {
+        .post(`https://${process.env.REACT_APP_BASE_URL}/pc/deleterowmany`, {
           ids: selectedRows,
         })
         .then((res) => {
@@ -207,18 +207,18 @@ const PcViewPurchase = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://${process.env.BASE_URL}/pc/getsupp`, {
+      .get(`https://${process.env.REACT_APP_BASE_URL}/pc/getsupp`, {
         withCredentials: true,
       })
       .then((response) => {
         setAll(response.data.supp);
-        return axios.get(`https://${process.env.BASE_URL}/pc/getme`, {
+        return axios.get(`https://${process.env.REACT_APP_BASE_URL}/pc/getme`, {
           withCredentials: true,
         });
       })
       .then((response) => {
         setDepartment(response.data.department);
-        return axios.get(`https://${process.env.BASE_URL}/pc/searchpurchase`, {
+        return axios.get(`https://${process.env.REACT_APP_BASE_URL}/pc/searchpurchase`, {
           withCredentials: true,
           params: {
             department: response.data.department,
