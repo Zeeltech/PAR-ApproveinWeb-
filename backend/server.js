@@ -1,9 +1,9 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
-const deanroute = require("./routes/deanroute");
-const hodroute = require("./routes/hodroute");
-const pcroute = require("./routes/pcroute");
-const adminroute = require("./routes/adminroute");
+const deanroute = require("./api/deanroute");
+const hodroute = require("./api/hodroute");
+const pcroute = require("./api/pcroute");
+const adminroute = require("./api/adminroute");
 const { errorHandler } = require("./middleware/errorMiddleware");
 const colors = require("colors");
 const port = process.env.PORT || 8000;
