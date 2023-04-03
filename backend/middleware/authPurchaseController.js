@@ -5,7 +5,7 @@ const PurchaseController = require("../models/pcModel");
 const protectPc = asyncHandler(async (req, res, next) => {
   try {
     const token = req.cookies.jwtokenpc;
-
+    console.log("toke is " + token);
     const verify_token = jwt.verify(
       token,
       process.env.JWT_SECRET
