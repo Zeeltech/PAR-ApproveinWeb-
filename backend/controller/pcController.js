@@ -39,6 +39,7 @@ const loginPc = async (req, res) => {
         secure: true,
         domain: `.${process.env.FRONT_END_URL}`,
         httpOnly: true,
+        path: "/",
       });
 
       res.status(200).json({
