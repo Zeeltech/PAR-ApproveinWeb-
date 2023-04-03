@@ -33,14 +33,14 @@ const loginPc = async (req, res) => {
     ) {
       const token = await user.generateAuthToken();
       console.log("Hello at pccontroller before setting cookie");
+
       res.cookie("jwtokenpc", token, {
         expires: new Date(Date.now() + 86400000),
-        sameSite: "none",
-        secure: true,
         domain: ".vercel.app",
         httpOnly: true,
         path: "/",
       });
+
       console.log("Hello at pccontroller after setting cookie");
       res.status(200).json({
         _id: user.id,
