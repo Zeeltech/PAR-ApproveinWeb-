@@ -16,7 +16,7 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: `https://${process.env.REACT_APP_FRONT_END_URL}`,
+  origin: "https://par-approvein-web-b9i4.vercel.app",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
