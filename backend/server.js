@@ -23,10 +23,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://par-approvein-web-b9i4.vercel.app"
-  );
+  res.setHeader("Access-Control-Allow-Origin", `https://${REACT_APP_BASE_URL}`);
   // another common pattern
   // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
   res.setHeader(
