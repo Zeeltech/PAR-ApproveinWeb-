@@ -37,7 +37,7 @@ const loginPc = async (req, res) => {
         expires: new Date(Date.now() + 86400000),
         sameSite: "none",
         secure: true,
-        domain: ".app",
+        domain: ".vercel.app",
         httpOnly: true,
         path: "/",
       });
