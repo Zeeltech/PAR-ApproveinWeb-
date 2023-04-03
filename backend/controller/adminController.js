@@ -22,7 +22,7 @@ const loginAdmin = async (req, res) => {
         expires: new Date(Date.now() + 86400000),
         sameSite: "none",
         secure: true,
-        domain: `https://${process.env.FRONT_END_URL}`,
+        domain: `.${process.env.FRONT_END_URL}`,
         httpOnly: true,
       });
 
