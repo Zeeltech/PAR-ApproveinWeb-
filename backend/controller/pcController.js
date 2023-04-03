@@ -36,7 +36,7 @@ const loginPc = async (req, res) => {
 
       res.cookie("jwtokenpc", token, {
         expires: new Date(Date.now() + 86400000),
-        domain: `https://${NEXT_PUBLIC_BASE_URL}`,
+        domain: ".vercel.app",
         httpOnly: true,
         path: "/",
       });
