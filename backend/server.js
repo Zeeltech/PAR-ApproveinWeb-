@@ -23,7 +23,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", `https://${REACT_APP_BASE_URL}`);
+  res.setHeader("Access-Control-Allow-Origin", `https://${NEXT_PUBLIC_BASE_URL}`);
   // another common pattern
   // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
   res.setHeader(
