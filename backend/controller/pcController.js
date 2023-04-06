@@ -39,7 +39,7 @@ const loginPc = async (req, res) => {
         sameSite: "none",
         secure: true,
         domain: ".onrender.com",
-        httpOnly: true,
+        /*         httpOnly: true, */
         path: "/",
       });
 
