@@ -15,7 +15,9 @@ function LoginPc() {
 
   useEffect(() => {
     axios
-      .get(`https://${process.env.REACT_APP_BASE_URL}/pc/dashboard`, { withCredentials: true })
+      .get(`https://${process.env.REACT_APP_BASE_URL}/pc/dashboard`, {
+        withCredentials: true,
+      })
       .then((response) => navigate("/pc/dashboard"));
   });
 
@@ -33,7 +35,7 @@ function LoginPc() {
             email: email,
             password: password,
           },
-          { withCredentials: true }
+          { withCredentials: true, credentials: "include" }
         )
         .then((response) => {
           if (response.data.message === "Successfully logged in") {
