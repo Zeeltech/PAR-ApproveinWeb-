@@ -38,9 +38,9 @@ const loginPc = async (req, res) => {
         expires: new Date(Date.now() + 86400000),
         sameSite: "none",
         secure: true,
-        domain: ".onrender.com",
+        /*         domain: ".onrender.com", */
         /*         httpOnly: true, */
-        path: "/",
+        /*         path: "/", */
       });
 
       console.log("Hello at pccontroller after setting cookie");
