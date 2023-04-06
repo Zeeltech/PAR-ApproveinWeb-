@@ -16,7 +16,7 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: "https://par-approvein-web-b9i4.vercel.app",
+  origin: "https://purchase-and-repair-f.onrender.com",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://par-approvein-web-b9i4.vercel.app"
+    "https://purchase-and-repair-f.onrender.com"
   );
   // another common pattern
   // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
